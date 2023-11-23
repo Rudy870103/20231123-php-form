@@ -18,6 +18,11 @@ include_once "db.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>檔案管理功能</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .thumbs{
+            width: 20vh;
+        }
+    </style>
 </head>
 
 <body>
