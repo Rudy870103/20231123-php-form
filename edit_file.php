@@ -69,6 +69,7 @@ if (isset($_GET['id'])) {
             <td><textarea name="" id="" style="width:350px;height:200px"><?= $file['desc']; ?></textarea></td>
         </tr>
     </table>
+    <input type="hidden" name="id" value="<?=$file['id'];?>">
     <input type="submit" value="更新">
 
 
