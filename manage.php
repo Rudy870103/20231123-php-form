@@ -19,7 +19,7 @@ include_once "db.php";
     <title>檔案管理功能</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .thumbs{
+        .thumbs {
             width: 20vh;
         }
     </style>
@@ -46,41 +46,45 @@ include_once "db.php";
             <td>大小</td>
             <td>描述</td>
             <td>上傳時間</td>
+            <td>操作</td>
         </tr>
         <?php
         foreach ($files as $file) {
-            switch($file['type']){
+            switch ($file['type']) {
                 case "image/webp":
                 case "image/jpeg":
                 case "image/png":
                 case "image/gif":
                 case "image/bmp":
-                    $imgname="./imgs/".$file['name'];
-                break;
+                    $imgname = "./imgs/" . $file['name'];
+                    break;
                 case 'msword':
-                    $imgname="./icon/wordicon.png";
-                break;
+                    $imgname = "./icon/wordicon.png";
+                    break;
                 case 'msexcel':
-                    $imgname="./icon/msexcel.png";
-                break;
+                    $imgname = "./icon/msexcel.png";
+                    break;
                 case 'msppt':
-                    $imgname="./icon/msppt.png";
-                break;
+                    $imgname = "./icon/msppt.png";
+                    break;
                 case 'pdf':
-                    $imgname="./icon/pdf.png";
-                break;
+                    $imgname = "./icon/pdf.png";
+                    break;
                 default:
-                    $imgname="./icon/other.png";
-    
+                    $imgname = "./icon/other.png";
             }
         ?>
             <tr>
-                <td><?= $file['id'];?></td>
-                <td><img class='thumbs' src="imgs/<?= $imgname;?>"></td>
-                <td><?= $file['type'];?></td>
-                <td><?= $file['size'];?></td>
-                <td><?= $file['desc'];?></td>
-                <td><?= $file['create_at'];?></td>
+                <td><?= $file['id']; ?></td>
+                <td><img class='thumbs' src="imgs/<?= $imgname; ?>"></td>
+                <td><?= $file['type']; ?></td>
+                <td><?= $file['size']; ?></td>
+                <td><?= $file['desc']; ?></td>
+                <td><?= $file['create_at']; ?></td>
+                <td>
+                    <button class="btn btn-info">編輯</button>
+                    <button class="btn btn-danger">刪除</button>
+                </td>
             </tr>
         <?php
         }
