@@ -49,10 +49,34 @@ include_once "db.php";
         </tr>
         <?php
         foreach ($files as $file) {
+            switch($file['type']){
+                case "image/webp":
+                case "image/jpeg":
+                case "image/png":
+                case "image/gif":
+                case "image/bmp":
+                    $imgname="./imgs/".$file['name'];
+                break;
+                case 'msword':
+                    $imgname="./icon/wordicon.png";
+                break;
+                case 'msexcel':
+                    $imgname="./icon/msexcel.png";
+                break;
+                case 'msppt':
+                    $imgname="./icon/msppt.png";
+                break;
+                case 'pdf':
+                    $imgname="./icon/pdf.png";
+                break;
+                default:
+                    $imgname="./icon/other.png";
+    
+            }
         ?>
             <tr>
                 <td><?= $file['id'];?></td>
-                <td><img class='thumbs' src="imgs/<?= $file['name'];?>"></td>
+                <td><img class='thumbs' src="imgs/<?= $imgname;?>"></td>
                 <td><?= $file['type'];?></td>
                 <td><?= $file['size'];?></td>
                 <td><?= $file['desc'];?></td>
