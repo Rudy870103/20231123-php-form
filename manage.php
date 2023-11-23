@@ -20,7 +20,7 @@ include_once "db.php";
     <link rel="stylesheet" href="style.css">
     <style>
         .thumbs {
-            width: 20vh;
+            width: 50vh;
         }
     </style>
 </head>
@@ -76,14 +76,14 @@ include_once "db.php";
         ?>
             <tr>
                 <td><?= $file['id']; ?></td>
-                <td><img class='thumbs' src="imgs/<?= $imgname; ?>"></td>
+                <td><img class='thumbs' src="<?= $imgname; ?>"></td>
                 <td><?= $file['type']; ?></td>
                 <td><?= $file['size']; ?></td>
                 <td><?= $file['desc']; ?></td>
                 <td><?= $file['create_at']; ?></td>
                 <td>
                     <button class="btn btn-info">編輯</button>
-                    <button class="btn btn-danger">刪除</button>
+                    <button class="btn btn-danger"><a href="./api/del_file.php?id=<?= $file['id']; ?>">刪除</a></button>
                 </td>
             </tr>
         <?php
